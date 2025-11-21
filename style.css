@@ -1,0 +1,290 @@
+/* Global */
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  font-family:'Poppins',sans-serif;
+  background:#f7f7f7;
+  transition:.4s ease-in-out;
+  overflow-x:hidden;
+}
+
+body.dark{
+  background:#0f172a;
+  color:#e2e8f0;
+}
+
+/* Particle Canvas */
+#particles{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  z-index:-1;
+  pointer-events:none;
+  opacity:0.7;
+}
+
+/* Smooth scrolling */
+html{
+  scroll-behavior:smooth;
+}
+
+/* Dark Mode Toggle */
+#toggle-theme{
+  margin-left:15px;
+  padding:8px 16px;
+  border-radius:50px;
+  background:rgba(255,255,255,0.2);
+  border:1px solid rgba(255,255,255,0.5);
+  cursor:pointer;
+  transition:0.3s ease;
+  font-size:18px;
+}
+
+#toggle-theme:hover{
+  transform:scale(1.12);
+  box-shadow:0 0 10px rgba(255,255,255,0.6);
+}
+
+body.dark #toggle-theme{
+  background:#1e293b;
+}
+
+/* Header */
+header{
+  position:sticky;
+  top:0;
+  padding:18px 50px;
+  display:flex;
+  justify-content:space-between;
+  backdrop-filter:blur(12px);
+  background:rgba(255,255,255,0.1);
+  border-bottom:1px solid rgba(255,255,255,0.2);
+  z-index:100;
+}
+
+nav a{
+  margin:0 15px;
+  text-decoration:none;
+  color:inherit;
+  font-weight:500;
+  transition:.3s;
+}
+
+nav a:hover{
+  color:#9333ea;
+  transform:translateY(-2px);
+}
+
+/* Hero Section */
+.hero{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:50px;
+  padding:110px 10%;
+}
+
+.img-border{
+  padding:6px;
+  width:230px;
+  height:230px;
+  background:linear-gradient(135deg,#9333ea,#2575fc);
+  border-radius:50%;
+  transition:0.4s;
+}
+
+.img-border:hover{
+  transform:rotate(6deg) scale(1.05);
+}
+
+.profile-img{
+  width:100%;
+  height:100%;
+  border-radius:50%;
+  object-fit:cover;
+}
+
+/* Button */
+.btn{
+  background:#9333ea;
+  padding:12px 25px;
+  border:none;
+  border-radius:10px;
+  color:white;
+  cursor:pointer;
+  transition:.3s;
+}
+
+.btn:hover{
+  transform:scale(1.05);
+  box-shadow:0 0 20px rgba(147,51,234,0.6);
+}
+
+/* Sections */
+section{
+  text-align:center;
+  padding:80px 10%;
+}
+
+/* --- NEW: Skill Hover Glow Effect --- */
+/* Updated Skills Section */
+.skills {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  padding-top: 10px;
+}
+
+/* Modern Pill Style Skills */
+.skill-box {
+  padding: 12px 22px;
+  border-radius: 50px;
+  border: 2px solid #9333ea;
+  font-weight: 500;
+  transition: 0.3s ease-in-out;
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(8px);
+  letter-spacing: 0.3px;
+  transform: translateY(0);
+}
+
+body.dark .skill-box {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+/* Hover Effect: Glow + Scale + Soft Smooth Animation */
+.skill-box:hover {
+  transform: scale(1.18) translateY(-4px);
+  background: #9333ea;
+  color: white;
+  box-shadow: 0 0 20px rgba(147, 51, 234, 0.6), 
+              0 0 40px rgba(147, 51, 234, 0.3);
+}
+
+/* Active/Click Animation */
+.skill-box:active {
+  transform: scale(0.95);
+}
+
+
+/* --- NEW: Project Card Effects (3D tilt + glow) --- */
+.project-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:20px;
+  margin-top:30px;
+}
+
+.project{
+  padding:20px;
+  border-radius:15px;
+  transition:.4s ease;
+  transform-style:preserve-3d;
+  cursor:pointer;
+  position:relative;
+}
+
+.project:hover{
+  transform:translateY(-15px) rotateY(6deg);
+  box-shadow:0 20px 30px rgba(0,0,0,0.25);
+  border:1px solid #9333ea;
+  background:rgba(147,51,234,0.2);
+}
+
+body.dark .project:hover{
+  background:rgba(255,255,255,0.05);
+  box-shadow:0 0 35px rgba(147,51,234,.5);
+}
+
+/* Glass */
+.glass{
+  background:rgba(255,255,255,0.16);
+  border:1px solid rgba(255,255,255,0.25);
+  backdrop-filter:blur(12px);
+  border-radius:15px;
+}
+
+body.dark .glass{
+  background:rgba(255,255,255,0.07);
+}
+
+/* Fade animation for scroll reveal */
+.fade-in{
+  opacity:0;
+  transform:translateY(20px);
+  animation:fade 1s forwards;
+}
+
+@keyframes fade{
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+/* Footer */
+footer {
+    background: rgba(255, 255, 255, 0.04);
+    backdrop-filter: blur(10px);
+    padding: 15px 0;
+    text-align: center;
+    border-radius: 10px 10px 0 0;
+    margin-top: 40px;
+    transition: background 0.3s ease;
+}
+
+/* Light mode compatibility */
+.light-mode footer {
+    background: rgba(0, 0, 0, 0.05);
+}
+
+/* Footer Layout */
+.footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+/* Each link box */
+footer a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-size: 14px;
+    font-weight: 500;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Icon Styling */
+footer img {
+    height: 32px;
+    margin-bottom: 6px;
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+/* Hover Effect */
+footer a:hover img {
+    transform: scale(1.18);
+    filter: brightness(1.2);
+}
+
+footer a:hover span {
+    opacity: 0.8;
+}
+
+/* Responsive */
+@media(max-width:780px){
+  .hero{
+    flex-direction:column-reverse;
+    text-align:center;
+  }
+}
